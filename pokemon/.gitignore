@@ -1,0 +1,14 @@
+.idea/
+__pycache__/
+*.sqlite3
+.DS_Store
+**/.env
+.env
+*.ipynb
+**/.coverage
+.pipenv/*
+*.log
+app/
+venv/
+.venv/
+.dist

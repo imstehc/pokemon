@@ -1,0 +1,32 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+asgiref = "==3.2.10"
+django = "==3.0"
+django-debug-toolbar = "==2.2"
+model-mommy = "==2.0.0"
+freezegun = "==0.3.15"
+psycopg2 = "==2.8.5"
+djangorestframework = "==3.11.1"
+python-dateutil = "==2.8.1"
+pytz = "==2020.1"
+six = "==1.15.0"
+click = "==7.1.2"
+coverage = "==5.2.1"
+gunicorn = "==20.0.4"
+django-jet2 = "==1.0.12"
+psycopg2-binary = "==2.8.5"
+django-localflavor = "==3.0.1"
+django-modeladmin-reorder = "==0.3.1"
+django-easy-select2 = "==1.5.7"
+django-nested-admin = "==3.3.2"
+django-filter = "==2.3.0"
+
+
+[requires]
+python = "^3.7, <3.9"

@@ -1,0 +1,36 @@
+version: '3'
+services:
+  db:
+    container_name: db
+    restart: always
+    image: postgres:12.3-alpine
+    volumes:
+      - postgres-volume-pgdata:/var/lib/postgresql/data
+    env_file:
+      - service.env
+    networks:
+      - pokemon_infra
+
+  api:
+    container_name: api
+    restart: always
+    image: registry.gitlab.com/syeriwon/study-projects/pokemon:1.0
+    privileged: true
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    env_file:
+      - service.env
+    command: ["sh", "-c", "/postgres_ready.py --prevent_ssl --host=db && ./make_env.sh && python manage.py migrate && python -u manage.py loaddata core/fixtures/pokemon_fixture.json && python -u manage.py loaddata core/fixtures/default_user.json && python manage.py runserver 0.0.0.0:8000"]
+    networks:
+      - pokemon_infra
+
+volumes:
+    postgres-volume-pgdata:
+
+networks:
+  pokemon_infra:
+    driver: bridge
+
+
