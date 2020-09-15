@@ -1,4 +1,4 @@
-## Project setup
+## Projeto setup
 
 ### Pipenv
 [tutorial](https://medium.com/code-rocket-blog/gerenciando-suas-depend%C3%AAncias-e-ambientes-python-com-pipenv-9e5413513fa6)
