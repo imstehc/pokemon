@@ -51,13 +51,23 @@ Após a configuração do servidor com os pré-requisitos de software, será nec
 
 ## 1.5.1 Configuração dos serviços docker
 A configuração do projeto compreende duas etapas: baixar as imagens com o Docker e executar os serviços, que estão especificados nos arquivos **.yml**, e então iniciar os containers.
-Para facilitar o gerenciamento da comunicação de dados entre containers e os nós externos ao ambiente docker, é utilizado uma rede (network) abstrata. Se o sistema será utilizado pela primeira vez no servidor, será necessário realizar essa configuração antes de iniciar os serviços. Para configurar a network que será utilizada pelos containers acesse a raiz do diretório **infra** e execute o script **create-network-docker** que se encontra no arquivo Makefile.
+Para facilitar o gerenciamento da comunicação de dados entre containers e os nós externos ao ambiente docker, é utilizado uma rede (network) abstrata. Se o sistema será utilizado pela primeira vez no servidor, será necessário realizar essa configuração antes de iniciar os serviços. Para configurar a network que será utilizada pelos containers acesse a raiz do diretório **infra** e execute o script **create-network-docker** que se encontra no arquivo Makefile com o comando
+```
+make create-network-docker
+
+```
 
 
 ## 1.5.2 Configuração do backend (pokemon)
 
 O projeto do backend foi feito em Python 3.7 utilizando a versão 3.0.3 do framework Django. O gerenciador de banco de dados utilizado no projeto é o Postgres versão 12. Todos estes serviços são executados em containers do Docker, que são instâncias de imagens linux contendo somente os recursos necessários para executar os serviços. Não é necessário a criação do banco de dados, o mesmo será criado quando o container foi iniciado.
-Para iniciar a api execute o script **deploy** que está no arquivo Makefile, dentro do diretório infra. O arquivo executado realizará o download das imagens já buildadas da aplicação e que foram armazenados no meu repositório pessoal no registry.gitlab.com. O script realiazará também a configuração de um login inicial **(seção 1.2)**, para que o usuário possa acessar as rotas de listagem dos pokémons e cadastro dos times. Após estes procedimentos a API Restful estará disponível em  http://127.0.0.1:8000.
+Para iniciar a api execute o script **deploy** que está no arquivo Makefile, dentro do diretório infra. 
+```
+make deploy
+
+```
+
+O arquivo executado realizará o download das imagens já buildadas da aplicação e que foram armazenados no meu repositório pessoal no registry.gitlab.com. O script realiazará também a configuração de um login inicial **(seção 1.2)**, para que o usuário possa acessar as rotas de listagem dos pokémons e cadastro dos times. Após estes procedimentos a API Restful estará disponível em  http://127.0.0.1:8000.
 
 
 Para verificar a situação dos serviços executando no docker, utilize o comando abaixo:
