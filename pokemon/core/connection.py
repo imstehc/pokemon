@@ -1,3 +1,4 @@
+# class only used in dev to import the initial data from  pokemon.json at postgres.
 import json
 
 from django.db.backends.signals import connection_created
@@ -7,7 +8,6 @@ from core.choices import POKEMON_TYPE_OPTIONS
 from core.models import Pokemon, PokemonType
 
 
-# method only used in dev to import the initial data from  pokemon.json at postgres.
 @receiver(connection_created)
 def create_pokemon_db(connection, **kwargs):
 

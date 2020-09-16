@@ -1,52 +1,28 @@
-# api
+# Api Pokemon
 
 ### Pipenv
 [tutorial](https://medium.com/code-rocket-blog/gerenciando-suas-depend%C3%AAncias-e-ambientes-python-com-pipenv-9e5413513fa6)
 
-### Database
+### Banco de dados
 
-* deletar o schema
-```
-DROP SCHEMA public CASCADE;
-CREATE SCHEMA public;
-```
+* Tenha o postgres na sua máquina
+* verifique se o banco postgres existe
 
-* fazer backup de algum banco de dados
-```
-docker exec -i db pg_dumpall --username=postgres --clean | gzip > backup.sql.gz
-```
+### Migrações
 
-* restaurar backup
+* Execute as migrações no banco
 ```
-psql -p 5432 -U postgres -h localhost < backup.sql.gz
+ python manage.py migrate
 ```
 
-### Manage
-
-* migrate
+* Execute o loaddata inicial para adicionar o usuário default e os dados na tabela
+pokemon
 ```
-./manage.py makemigrations
-./manage.py migrate
-```
-
-* createsuperuser
-```
-./manage.py createsuperuser
+python manage.py  loaddata core/fixtures/default_user.json
+python manage.py  loaddata core/fixtures/pokemon_fixture.json
 ```
 
-* dumpdata
-```
-./manage.py dumpdata configuration --indent 4 > configuration.json
-./manage.py dumpdata product.client --indent 4 > clientes.json
-```
-
-* loaddata
-```
-./manage.py loaddata configuration.json
-./manage.py loaddata clientes.json
-```
-
-## Project setup
+## Configuração do Projeto
 
 ### Dependências
 
@@ -70,12 +46,13 @@ psql -p 5432 -U postgres -h localhost < backup.sql.gz
     pip install pipenv
     ```
 
-  * Instalar dependências do projeto
-    ```
-    pipenv install .
-    ```
-
   * Ativar virtualenv
     ```
     pipenv shell
+    ```
+   
+    * Instalar dependências do projeto
+    ```
+    pipenv install 
+    pip install -r requirements.txt
     ```
