@@ -69,6 +69,8 @@ make deploy
 
 O arquivo executado realizará o download das imagens já buildadas da aplicação e que foram armazenados no meu repositório pessoal no registry.gitlab.com. O script realiazará também a configuração de um login inicial **(seção 1.2)**, para que o usuário possa acessar as rotas de listagem dos pokémons e cadastro dos times. Após estes procedimentos a API Restful estará disponível em  http://127.0.0.1:8000.
 
+Obs: para informações sobre como configurar o projeto pokémon localmente em alguma IDE, acesse o readme que está no diretório **pokemon/**.
+
 
 Para verificar a situação dos serviços executando no docker, utilize o comando abaixo:
 >docker ps
