@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "8585a702-0738-4afd-8c49-9c593e6c3b66",
+		"name": "pokemon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:8000/api/core/pokemon/?name=pikachu&types=electric&types=poison",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjAwODA4MTc1LCJqdGkiOiI2YTU0YTIyZmM2N2I0MDIxYjYxMWExYjllNmU3NmExMCIsInVzZXJfaWQiOjF9.O4TuGTwHFpUFShcJGvuh5lVpqdx1qg4FjuxYWi72Cb4",
+						"type": "text"
+					},
+					{
+						"key": "refresh",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYwMjUzNjE3NSwianRpIjoiYzJhMzA0M2U0YmQxNDY5Y2E3NDZjODM5Yzc4YTQzYjEiLCJ1c2VyX2lkIjoxfQ.i6QlALztfTIvg7JOJeBgjVZW_9lszDIlpEILxM274Kk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/core/pokemon/?name=pikachu&types=electric&types=poison",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"core",
+						"pokemon",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "pikachu"
+						},
+						{
+							"key": "types",
+							"value": "electric"
+						},
+						{
+							"key": "types",
+							"value": "poison"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/core/token/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\": \"ash\", \"password\": \"pikachu\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/core/token/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"core",
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/core/pokemon_team/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjAwODA4MTc1LCJqdGkiOiI2YTU0YTIyZmM2N2I0MDIxYjYxMWExYjllNmU3NmExMCIsInVzZXJfaWQiOjF9.O4TuGTwHFpUFShcJGvuh5lVpqdx1qg4FjuxYWi72Cb4",
+						"type": "text"
+					},
+					{
+						"key": "refresh",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYwMjUzNjE3NSwianRpIjoiYzJhMzA0M2U0YmQxNDY5Y2E3NDZjODM5Yzc4YTQzYjEiLCJ1c2VyX2lkIjoxfQ.i6QlALztfTIvg7JOJeBgjVZW_9lszDIlpEILxM274Kk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"TEAM 3\",\n    \"pokemon\": [{\n        \"id\": 100,\n        \"name\": \"voltorb\",\n        \"weight\": \"10.4\",\n        \"height\": \"0.5\",\n        \"xp\": 112,\n        \"image\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/100.png\"\n    },\n    {\n        \"id\": 101,\n        \"name\": \"electrode\",\n        \"weight\": \"66.6\",\n        \"height\": \"1.2\",\n        \"xp\": 112,\n        \"image\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/101.png\"\n    }, \n    {\n        \"id\": 125,\n        \"name\": \"electabuzz\",\n        \"weight\": \"30.0\",\n        \"height\": \"1.1\",\n        \"xp\": 112,\n        \"image\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/125.png\"\n    },\n    {\n        \"id\": 135,\n        \"name\": \"jolteon\",\n        \"weight\": \"24.5\",\n        \"height\": \"0.8\",\n        \"xp\": 112,\n        \"image\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/135.png\"\n    },\n    {\n        \"id\": 145,\n        \"name\": \"zapdos\",\n        \"weight\": \"52.6\",\n        \"height\": \"1.6\",\n        \"xp\": 112,\n        \"image\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/145.png\"\n    },\n    {\n        \"id\": 170,\n        \"name\": \"chinchou\",\n        \"weight\": \"12.0\",\n        \"height\": \"0.5\",\n        \"xp\": 112,\n        \"image\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/170.png\"\n    }]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/core/pokemon_team/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"core",
+						"pokemon_team",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/core/pokemon_team/",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjAwODA4MTc1LCJqdGkiOiI2YTU0YTIyZmM2N2I0MDIxYjYxMWExYjllNmU3NmExMCIsInVzZXJfaWQiOjF9.O4TuGTwHFpUFShcJGvuh5lVpqdx1qg4FjuxYWi72Cb4",
+						"type": "text"
+					},
+					{
+						"key": "refresh",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYwMjUzNjE3NSwianRpIjoiYzJhMzA0M2U0YmQxNDY5Y2E3NDZjODM5Yzc4YTQzYjEiLCJ1c2VyX2lkIjoxfQ.i6QlALztfTIvg7JOJeBgjVZW_9lszDIlpEILxM274Kk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/core/pokemon_team/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"core",
+						"pokemon_team",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
