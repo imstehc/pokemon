@@ -42,7 +42,7 @@ A seguir serão fornecidas orientações específicas para cada item e os comand
 
 ## 1.4 Docker
 Para configuração dos serviços é necessário instalar o Docker, uma aplicação que gerencia containers onde serão executados de maneira isolada os serviços da API do sistema.
-Os seguintes links podem ser utilizados como referência para configuração da aplicação:
+O seguinte link pode ser utilizado como referência para configuração da aplicação:
 
 * Instalação do Docker no Ubuntu: https://www.linode.com/docs/applications/containers/install-docker-ce-ubuntu-1804
 
@@ -57,7 +57,7 @@ Para facilitar o gerenciamento da comunicação de dados entre containers e os n
 ## 1.5.2 Configuração do backend (pokemon)
 
 O projeto do backend foi feito em Python 3.7 utilizando a versão 3.0.3 do framework Django. O gerenciador de banco de dados utilizado no projeto é o Postgres versão 12. Todos estes serviços são executados em containers do Docker, que são instâncias de imagens linux contendo somente os recursos necessários para executar os serviços. Não é necessário a criação do banco de dados, o mesmo será criado quando o container foi iniciado.
-Para iniciar a api execute o script **deploy** que está no arquivo Makefile, dentro do diretório infra. O arquivo executado realizará o download das imagens já buildadas da aplicação e que foram armazenados no meu repositório pessoal no registry.gitlab.com. O script realiazará também a configuração de um login inical para que o usuário possa acessar as rotas de listagem dos pokémons e cadastro dos times. Após estes procedimentos a API Restful estará disponível em  http://127.0.0.1:8000.
+Para iniciar a api execute o script **deploy** que está no arquivo Makefile, dentro do diretório infra. O arquivo executado realizará o download das imagens já buildadas da aplicação e que foram armazenados no meu repositório pessoal no registry.gitlab.com. O script realiazará também a configuração de um login inicial **(seção 1.2)**, para que o usuário possa acessar as rotas de listagem dos pokémons e cadastro dos times. Após estes procedimentos a API Restful estará disponível em  http://127.0.0.1:8000.
 
 
 Para verificar a situação dos serviços executando no docker, utilize o comando abaixo:
@@ -79,12 +79,12 @@ A geração desse token pode ser feita de duas formas:
 
 ```
 
-2. Importando o arquivo pokemon.postman_collection.json que se encontra no diretório pokemom para aplicação postman e acessando a url 
-  ``` http://127.0.0.1:8000/api/core/token``` disponível na coleção chamada pokemon.
+2. Importando o arquivo **pokemon.postman_collection.json** que se encontra no diretório pokemon para aplicação postman e acessando a url 
+  ``` http://127.0.0.1:8000/api/core/token``` disponível na coleção importada.
   
 
 ## 2.1. Listar pokémons por nome e tipo
-Basta acessar a coleção **pokemon** importada anteriormente no postman e abrir o método GET ``` http://127.0.0.1:8000/api/core/pokemon/?name=nome_pokemon/?types=tipo_pokemon```
+Para realizar essa operação, é necessário acessar a coleção **pokemon** importada anteriormente no postman e abrir o método GET ``` http://127.0.0.1:8000/api/core/pokemon/?name=nome_pokemon/?types=tipo_pokemon```
 
 Para filtrar por nome ou tipo basta trocar **nome_pokemon** e **tipo_pokemon** para as strings desejadas na busca.
 Para trazer todos os pokémons é necessário remover os parametros de filtro da url.
@@ -150,4 +150,5 @@ A criação dos times pode ser feita acessando o método POST ```http://127.0.0.
 }
 ```
 ## 2.3 Listar times cadastrados
-Para visualizar todos os times cadastrados é necessário apenas acessar novamente a coleção **pokemon** que foi importada no postman e abrir o método GET ``` http://127.0.0.1:8000/api/core/pokemon_team/```. 
+Para visualizar todos os times cadastrados é necessário apenas acessar novamente a coleção **pokemon** que foi importada no postman e abrir o método GET da seguinte url: 
+``` http://127.0.0.1:8000/api/core/pokemon_team/```. 
