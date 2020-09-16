@@ -1,16 +1,17 @@
 # 1. Introdução
 
-O objetivo desse projeto é permitir que as pessoas jogadoras do jogo Pokémon possam montar seus times baseado em algumas informações básicas sobre os personagens do jogo. Para facilitar e acelerar o desenvolvimento da solução, foram utilizadas tecnologias que possuem um kit de flexível para construir apis web, que permitem também que os serviços gerados pela solução sejam disponibilizados de forma mais fácil e rápida.
+O objetivo desse projeto é permitir que as pessoas jogadoras do jogo Pokémon possam montar seus times baseado em algumas informações básicas sobre os personagens do jogo. Para facilitar e acelerar o desenvolvimento da solução, foram utilizadas tecnologias que possuem um kit flexível/personalizável para construir apis web e que permitem também que os serviços gerados pela solução sejam disponibilizados de forma mais fácil e rápida.
 
 O projeto está organizado em 3 diretórios: um que compreende os artefatos para build da imagem base  contendo todos os módulos pips utilizados na solução **(base-images)**, uma API RESTFul **(projeto pokemon)** e um diretório contendo os artefatos de configuração do projeto em containers docker **(infra)**.
 
 
 
-## 1.1 Tecnologias utilizadas
+## 1.1 Tecnologias e ferramentas utilizadas
 * Python 3.7 - Foi utilizada por ser uma das linguagens de programação mais acessíveis atualmente, pois possui sintaxe simplificada e não complicada, o que dá mais ênfase à linguagem natural o que simplifica o desenvolvimento das soluções;
 * Django Rest Framework - foi utilizado possuir um kit de ferramentas poderoso e flexível para construir APIs para Web, por possuir embutido políticas de autenticação, incluindo pacotes para OAuth1a e OAuth2. A sua Serialização suporta fontes de dados ORM e não ORM, totalmente personalizável, além de possuir uma documentação extensa e grande suporte da comunidade.
 * Docker -  Por facilitar a distribuição da solução em outras máquinas de forma rápida e confiável.
 * PostgreSQL 12 - O PostgreSQL vem com muitos recursos destinados a ajudar os desenvolvedores a construir aplicativos, administradores para proteger a integridade dos dados e criar ambientes tolerantes a falhas, além de ser gratuito e de código aberto;
+* Postman - Por simplificar o processo de teste de uma api rest.
 
 
 
@@ -63,6 +64,8 @@ Para verificar a situação dos serviços executando no docker, utilize o comand
 >docker ps
 
 # 2. Guia de uso
+Obs: nessa seção recomenda-se o uso da ferramenta postman para facilitar o processo de teste da api.
+
 Para utilizar as rotas da api é necessário gerar um token válido usando os dados de acesso que estão na seção 1.2 e passá-lo no header da request. 
 A geração desse token pode ser feita de duas formas:
 1. executando o comando abaixo em um terminal bash.
@@ -72,17 +75,76 @@ A geração desse token pode ser feita de duas formas:
     -X POST \
     -H "Content-Type: application/json" \
     -d '{"username": "ash", "password": "pickachu"}' \
-    http://localhost:8000/core/api/token
+    http://localhost:8000/api/core/token
 
 ```
 
-2. utilizando o arquivo disponibilizado abaixo, basta fazer download do arquivo e abrir em algum aplicativo tipo o Postman.
-<adicionar aqui o link do arquivo postman>
+2. Importando o arquivo pokemon.postman_collection.json que se encontra no diretório pokemom para aplicação postman e acessando a url 
+  ``` http://127.0.0.1:8000/api/core/token``` disponível na coleção chamada pokemon.
+  
 
 ## 2.1. Listar pokémons por nome e tipo
-A listagem dos pokémons disponíveis pode ser feita acessando a url http://127.0.0.1:8000/core/api/pokemon/?name=nome_pokemon/?types=
-todo
+Basta acessar a coleção **pokemon** importada anteriormente no postman e abrir o método GET ``` http://127.0.0.1:8000/api/core/pokemon/?name=nome_pokemon/?types=tipo_pokemon```
+
+Para filtrar por nome ou tipo basta trocar **nome_pokemon** e **tipo_pokemon** para as strings desejadas na busca.
+Para trazer todos os pokémons é necessário remover os parametros de filtro da url.
+
 
 
 ## 2.2 Cadastrar times 
-todo
+A criação dos times pode ser feita acessando o método POST ```http://127.0.0.1:8000/api/core/pokemon_team/``` , setando no header o Authorization Bearer + token gerado anteriormente e no body as informações para o cadastro como no json de exemplo abaixo:
+```
+{
+    "name": "TEAM 3",
+    "pokemon": [{
+        "id": 100,
+        "name": "voltorb",
+        "weight": "10.4",
+        "height": "0.5",
+        "xp": 112,
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/100.png"
+    },
+    {
+        "id": 101,
+        "name": "electrode",
+        "weight": "66.6",
+        "height": "1.2",
+        "xp": 112,
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/101.png"
+    }, 
+    {
+        "id": 125,
+        "name": "electabuzz",
+        "weight": "30.0",
+        "height": "1.1",
+        "xp": 112,
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/125.png"
+    },
+    {
+        "id": 135,
+        "name": "jolteon",
+        "weight": "24.5",
+        "height": "0.8",
+        "xp": 112,
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/135.png"
+    },
+    {
+        "id": 145,
+        "name": "zapdos",
+        "weight": "52.6",
+        "height": "1.6",
+        "xp": 112,
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/145.png"
+    },
+    {
+        "id": 170,
+        "name": "chinchou",
+        "weight": "12.0",
+        "height": "0.5",
+        "xp": 112,
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/170.png"
+    }]
+}
+```
+## 2.3 Listar times cadastrados
+Para visualizar todos os times cadastrados é necessário apenas acessar novamente a coleção **pokemon** que foi importada no postman e abrir o método GET ``` http://127.0.0.1:8000/api/core/pokemon_team/```. 
