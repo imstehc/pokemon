@@ -1,5 +1,5 @@
 ## Projeto setup
-Para configuração local do projeto em alguma ideia como o pycharm siga os passos descritos abaixo.
+Para configuração local do projeto em alguma ferramenta de desenvolvimento como o pycharm siga os passos descritos abaixo.
 
 ### Pipenv
 [tutorial](https://medium.com/code-rocket-blog/gerenciando-suas-depend%C3%AAncias-e-ambientes-python-com-pipenv-9e5413513fa6)
