@@ -1,4 +1,5 @@
-# 1. Introdução
+
+# 1. Descrição da solução
 
 O objetivo desse projeto é permitir que as pessoas jogadoras do jogo Pokémon possam montar seus times baseado em algumas informações básicas sobre os personagens do jogo. Para facilitar e acelerar o desenvolvimento da solução, foram utilizadas tecnologias que possuem um kit flexível/personalizável para construir apis web e que permitem também que os serviços gerados pela solução sejam disponibilizados de forma mais fácil e rápida.
 
@@ -164,3 +165,8 @@ A criação dos times pode ser feita acessando o método POST ```http://127.0.0.
 ## 2.3 Listar times cadastrados
 Para visualizar todos os times cadastrados é necessário apenas acessar novamente a coleção **pokemon** que foi importada no postman e abrir o método GET da seguinte url: 
 ``` http://127.0.0.1:8000/api/core/pokemon_team/```. 
+
+## Informações adicionais
+* autor(a): Stephany Silva.
+* e-mail: stephanycastro.es@gmail.com
+
