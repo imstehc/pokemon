@@ -66,11 +66,15 @@ Para verificar a situação dos serviços executando no docker, utilize o comand
 Para utilizar as rotas da api é necessário gerar um token válido usando os dados de acesso que estão na seção 1.2 e passá-lo no header da request. 
 A geração desse token pode ser feita de duas formas:
 1. executando o comando abaixo em um terminal bash.
-  curl \
+
+```
+     curl \
     -X POST \
     -H "Content-Type: application/json" \
     -d '{"username": "ash", "password": "pickachu"}' \
     http://localhost:8000/core/api/token
+
+```
 
 2. utilizando o arquivo disponibilizado abaixo, basta fazer download do arquivo e abrir em algum aplicativo tipo o Postman.
 <adicionar aqui o link do arquivo postman>
