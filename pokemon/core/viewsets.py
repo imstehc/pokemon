@@ -17,9 +17,11 @@ class PokemonViewSet(viewsets.ModelViewSet):
     ordering = ('-id',)
 
 
-# viewset of router /api/core/pokemon_team used to store the teams created by the user
 @authentication_classes((JWTAuthentication,))
 @permission_classes((IsAuthenticated,))
+# viewset of router /api/core/pokemon_team used to store the teams created by the user
+# @authentication_classes((JWTAuthentication,))
+# @permission_classes((IsAuthenticated,))
 class PokemonTeamViewSet(viewsets.ModelViewSet):
     queryset = models.PokemonTeam.objects.all()
     serializer_class = serializers.PokemonTeamSerializer

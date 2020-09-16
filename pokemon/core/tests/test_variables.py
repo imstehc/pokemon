@@ -19,7 +19,10 @@ TEAM_3 = {"name": "TEAM 3",
                   "height": "1.2",
                   "xp": 112,
                   "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/101.png"
-              }]
+              }],
+          "trainer": {
+              "id": 1
+          }
          }
 
 TEAM_WITHOUT_NAME = {"name": "",
@@ -37,7 +40,10 @@ TEAM_WITHOUT_NAME = {"name": "",
                           "weight": "66.6",
                           "height": "1.2",
                           "xp": 112,
-                          "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/101.png"}]
+                          "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/101.png"}],
+                     "trainer": {
+                         "id": 1
+                     }
                     }
 
 TEAM_NAME_4_CHARACTERS = {"name": "TEAM",
@@ -90,5 +96,7 @@ TEAM_NAME_4_CHARACTERS = {"name": "TEAM",
                                   "height": "1.2",
                                   "xp": 112,
                                   "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"
-                                           "101.png"}]
-                            }
+                                           "101.png"}],
+                          "trainer": {
+                              "id": 1
+                          }}

@@ -92,10 +92,10 @@ Para trazer todos os pokémons é necessário remover os parametros de filtro da
 
 
 ## 2.2 Cadastrar times 
-A criação dos times pode ser feita acessando o método POST ```http://127.0.0.1:8000/api/core/pokemon_team/``` , setando no header o Authorization Bearer + token gerado anteriormente e no body as informações para o cadastro como no json de exemplo abaixo:
+A criação dos times pode ser feita acessando o método POST ```http://127.0.0.1:8000/api/core/pokemon_team/``` , adicionando no header o Authorization Bearer + token gerado anteriormente e no body as informações para o cadastro como no json de exemplo abaixo:
 ```
 {
-    "name": "TEAM 3",
+    "name": "TEAM 7",
     "pokemon": [{
         "id": 100,
         "name": "voltorb",
@@ -143,7 +143,10 @@ A criação dos times pode ser feita acessando o método POST ```http://127.0.0.
         "height": "0.5",
         "xp": 112,
         "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/170.png"
-    }]
+    }],
+    "trainer": {
+        "id": 2
+    }
 }
 ```
 ## 2.3 Listar times cadastrados

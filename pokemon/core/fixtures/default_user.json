@@ -3,7 +3,7 @@
     "model": "core.customuser",
     "pk": 1,
     "fields": {
-        "password": "pbkdf2_sha256$180000$KqDZd9qp9fZt$mEqSBYHG+KNEFKdlA/lFh+4fzI5eOpkc/tdLnxU6eaA=",
+        "password": "pbkdf2_sha256$180000$veqGMIOeZ0Hb$VdSoc9HNq7MXBN/euS9/3MDV1mBWe1aDXg28qNUCvDY=",
         "last_login": null,
         "is_superuser": true,
         "username": "ash",

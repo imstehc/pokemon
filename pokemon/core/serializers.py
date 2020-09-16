@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from . import rules
-from .models import Pokemon, PokemonTeam, PokemonType
+from .models import Pokemon, PokemonTeam, PokemonType, CustomUser
 
 
 # Class that PokemonType model instance to be converted to native Python datatype that can then be easily
@@ -43,15 +43,28 @@ class PokemonWithoutTypesSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'weight', 'height', 'xp', 'image']
 
 
+# Class that allow CustomUser model instance to be converted to native
+# Python datatype that can then be easily rendered into JSON.
+class CustomUserSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField()
+    # username = serializers.CharField()
+    # password = serializers.CharField()
+
+    class Meta:
+        model = CustomUser
+        fields = ['id']
+
+
 # Class that allow PokemonTeam model instance to be converted to native
 # Python datatype that can then be easily rendered into JSON.
 class PokemonTeamSerializer(serializers.ModelSerializer):
     name = serializers.CharField()
     pokemon = PokemonWithoutTypesSerializer(many=True)
+    trainer = CustomUserSerializer()
 
     class Meta:
         model = PokemonTeam
-        fields = ['name', 'pokemon']
+        fields = ['name', 'pokemon', 'trainer']
 
     # method to created the teams. It's was necessary to subscribed that pattern method of django because of the
     # many to many relationship between pokemon table and pokem_types table.

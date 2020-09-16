@@ -1,12 +1,10 @@
 import os
 from datetime import timedelta
-from os.path import exists
 from pathlib import Path
 
 from django.utils.translation import ugettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -37,7 +35,7 @@ DEFAULT_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.postgres',
     'admin_reorder',
-    'easy_select2',
+    'easy_select2'
 ]
 
 THIRD_PARTY_APPS = [
@@ -119,7 +117,7 @@ if DEBUG:
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('POSTGRES_DB', 'postgres'),
+        'NAME': os.environ.get('POSTGRES_DATABASE', 'postgres'),
         'USER': os.environ.get('POSTGRES_USER', 'postgres'),
         'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'postgres'),
         'HOST': os.environ.get('POSTGRES_HOST', 'localhost'),
