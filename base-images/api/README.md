@@ -1,6 +1,6 @@
 # Comandos
 
-Build de uma versão de imagem base
+Para gerar o Build de uma nova versão de imagem base use o comando abaixo:
 ```bash
-make VERSION=1.0.0 build
+make build
 ```
